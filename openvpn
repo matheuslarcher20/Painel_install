@@ -2,33 +2,33 @@
 nomecoment=$(echo VIVO)
 newclient () {
         # Generates the custom client.ovpn
-        cp /etc/openvpn/client-common.txt ~/$nomecoment'-'$1.ovpn
-        echo "<ca>" >> ~/$nomecoment'-'$1.ovpn
-        cat /etc/openvpn/easy-rsa/pki/ca.crt >> ~/$nomecoment'-'$1.ovpn
-        echo "</ca>" >> ~/$nomecoment'-'$1.ovpn
-        echo "<cert>" >> ~/$nomecoment'-'$1.ovpn
-        cat /etc/openvpn/easy-rsa/pki/issued/$1.crt >> ~/$nomecoment'-'$1.ovpn
-        echo "</cert>" >> ~/$nomecoment'-'$1.ovpn
-        echo "<key>" >> ~/$nomecoment'-'$1.ovpn
-        cat /etc/openvpn/easy-rsa/pki/private/$1.key >> ~/$nomecoment'-'$1.ovpn
-        echo "</key>" >> ~/$nomecoment'-'$1.ovpn
-        echo "<tls-auth>" >> ~/$nomecoment'-'$1.ovpn
-        cat /etc/openvpn/ta.key >> ~/$nomecoment'-'$1.ovpn
-        echo "</tls-auth>" >> ~/$nomecoment'-'$1.ovpn
+        cp /etc/openvpn/client-common.txt ~/$nomecoment.ovpn
+        echo "<ca>" >> ~/$nomecoment.ovpn
+        cat /etc/openvpn/easy-rsa/pki/ca.crt >> ~/$nomecoment.ovpn
+        echo "</ca>" >> ~/$nomecoment.ovpn
+        echo "<cert>" >> ~/$nomecoment.ovpn
+        cat /etc/openvpn/easy-rsa/pki/issued/.crt >> ~/$nomecoment.ovpn
+        echo "</cert>" >> ~/$nomecoment.ovpn
+        echo "<key>" >> ~/$nomecoment.ovpn
+        cat /etc/openvpn/easy-rsa/pki/private/.key >> ~/$nomecoment.ovpn
+        echo "</key>" >> ~/$nomecoment.ovpn
+        echo "<tls-auth>" >> ~/$nomecoment.ovpn
+        cat /etc/openvpn/ta.key >> ~/$nomecoment.ovpn
+        echo "</tls-auth>" >> ~/$nomecoment.ovpn
 }
 
 
                        ./easyrsa build-client-full $nomecoment nopass
                         # Generates the custom client.ovpn
-                        newclient "$CLIENT"
-                        VALIDADOR2=$(cat /etc/openvpn/easy-rsa/pki/issued/$CLIENT.crt)
-                        if [[ $VALIDADOR2 = "" ]]; then
-                        echo -e "
-\033[0;31m Erro ao gerar certificado para: $CLIENT !!\033[0m"
-else
+                        newclient "$nomecoment"
+                        VALIDADOR=$(cat /etc/openvpn/easy-rsa/pki/issued/$nomecoment.crt)
 IP=$(wget -qO- ipv4.icanhazip.com)
-cd 
-mv $nomecoment.ovpn $nomecoment_&IP.ovpn
+                        if [[ $VALIDADOR = "" ]]; then
+                        echo -e "
+\033[0;31m Erro ao gerar certificado para: $nomecoment.$IP.ovpn !!\033[0m"
+else
+cd
+mv $nomecoment.ovpn $nomecoment.$IP.ovpn
                         echo " "
                         echo -e "\033[1;36m Novo certificado foi gerado para: \033[1;37m$IP\033[0m"
                         echo " "
