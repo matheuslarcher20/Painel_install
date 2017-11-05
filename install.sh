@@ -119,7 +119,7 @@ forwarded_for off
 #cache deny all' >> /etc/squid3/squid.conf
 service squid3 restart
 
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/alterarsenha.sh -O /bin/alterarsenha
+	https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/AlterarSenha.sh -O /bin/alterarsenha
 	chmod 777 AlterarSenha.sh
 	chmod +x /bin/alterarsenha
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/criarusuario.sh -O /bin/criarusuario
