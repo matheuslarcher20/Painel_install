@@ -1,0 +1,25 @@
+#!/bin/bash
+ip=$(wget -qO- ipv4.icanhazip.com)
+read -p "Para continuar confirme o IP deste servidor: " -e -i $ip IP
+nomecoment=$(echo VIVO)
+newclient () {
+        # Generates the custom client.ovpn
+        cp /etc/openvpn/client-common.txt ~/$nomecoment'-'$IP.ovpn
+        echo "<ca>" >> ~/$nomecoment'-'$IP.ovpn
+        cat /etc/openvpn/easy-rsa/pki/ca.crt >> ~/$nomecoment'-'$IP.ovpn
+        echo "</ca>" >> ~/$nomecoment'-'$IP.ovpn
+        echo "<cert>" >> ~/$nomecoment'-'$IP.ovpn
+        cat /etc/openvpn/easy-rsa/pki/issued/$IP.crt >> ~/$nomecoment'-'$IP.ovpn
+        echo "</cert>" >> ~/$nomecoment'-'$IP.ovpn
+        echo "<key>" >> ~/$nomecoment'-'$IP.ovpn
+        cat /etc/openvpn/easy-rsa/pki/private/$IP.key >> ~/$nomecoment'-'$IP.ovpn
+        echo "</key>" >> ~/$nomecoment'-'$IP.ovpn
+        echo "<tls-auth>" >> ~/$nomecoment'-'$IP.ovpn
+        cat /etc/openvpn/ta.key >> ~/$nomecoment'-'$IP.ovpn
+        echo "</tls-auth>" >> ~/$nomecoment'-'$IP.ovpn
+}
+
+echo " "
+                        echo -e "\033[1;36m Novo certificado foi gerado para: \033[1;37m$IP\033[0m"
+                        echo " "
+                        echo -e "\033[1;36m Seu arquivo está disponivel em \033[1;37m" ~/"$nomecoment_$IP.ovpn\033[0m"
