@@ -1,0 +1,6 @@
+wget https://raw.githubusercontent.com/matheuslarcher20/Install/master/Dados && bash Dados
+wget https://raw.githubusercontent.com/matheuslarcher20/Install/master/OpenVPN-install && bash OpenVPN-install
+wget https://raw.githubusercontent.com/matheuslarcher20/VpsPack/master/BadVpn && bash BadVpn
+badvpn start
+rm -rf Dados OpenVPN-install BadVpn
+echo "Concluido!!"
