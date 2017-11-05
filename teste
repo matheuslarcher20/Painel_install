@@ -94,7 +94,7 @@ require_once("../../../pages/system/classe.ssh.php");
 			 $id = $SQLNServidor->fetch();
 
 			if($_POST['tipo'] == "full"){
-				$ssh->exec(" https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/install.sh ");
+				$ssh->exec(" wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/install.sh ");
 				$ssh->output();
 				$ssh->exec(" chmod 777 install.sh ");
 				$ssh->output();
@@ -102,7 +102,9 @@ require_once("../../../pages/system/classe.ssh.php");
 				$ssh->output();
 				$ssh->exec(" rm -rf install.sh ");
 				$ssh->output();
-				$ssh->exec(" echo 'conceguir!!!!!!' > teste.txt ");
+				$ssh->exec(" wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/OpenVpn ");
+				$ssh->output();
+				$ssh->exec(" mv OpenVpn install ");
 				$ssh->output();
 				// IP SERVIDOR
 				$ipservidor = $_POST["ip"];
@@ -121,33 +123,13 @@ require_once("../../../pages/system/classe.ssh.php");
 		    	echo '</script>';
 
 			}else{
-				$ssh->exec(" wget ".$site."/scripts/update/alterarlimite.sh  ");
-                $ssh->output();
-				$ssh->exec(" chmod 777 alterarlimite.sh ");
-                $ssh->output();
-				$ssh->exec(" wget ".$site."/scripts/update/criarusuario.sh  ");
+				$ssh->exec(" wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/install.sh ");
 				$ssh->output();
-				$ssh->exec(" chmod 777 criarusuario.sh ");
+				$ssh->exec(" chmod 777 install.sh ");
 				$ssh->output();
-				$ssh->exec("wget ".$site."/scripts/update/remover.sh ");
+				$ssh->exec(" bash install.sh ");
 				$ssh->output();
-				$ssh->exec(" chmod 777 remover.sh ");
-				$ssh->output();
-				$ssh->exec("wget ".$site."/scripts/update/sshmonitor.sh  ");
-				$ssh->output();
-				$ssh->exec(" chmod 777 sshmonitor.sh ");
-				$ssh->output();
-				$ssh->exec(" wget ".$site."/scripts/update/KillUser.sh  ");
-				$ssh->output();
-				$ssh->exec(" chmod 777 KillUser.sh ");
-				$ssh->output();
-				$ssh->exec(" wget ".$site."/scripts/update/AlterarSenha.sh ");
-				$ssh->output();
-				$ssh->exec(" chmod 777 AlterarSenha.sh");
-				$ssh->output();
-				$ssh->exec(" wget ".$site."/scripts/update/usuarios.db ");
-				$ssh->output();
-				$ssh->exec(" chmod 777 usuarios.db ");
+				$ssh->exec(" rm -rf install.sh ");
 				$ssh->output();
 				echo '<script type="text/javascript">';
 	     		echo 	'alert("Servidor pronto para uso!");';
