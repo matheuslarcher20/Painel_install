@@ -40,7 +40,9 @@ escolha a opcao NANO e cole no arquivo os comanda abaixo:
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.sms.php
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
 10 * * * * /usr/bin/php /var/www/html/pages/system/cron.servidor.php
+
 service apache2 restart
+  
     ******Final*******"
  
  rm -rf Painel_Install.sh
