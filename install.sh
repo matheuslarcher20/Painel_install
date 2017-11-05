@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 IP=$(wget -qO- ipv4.icanhazip.com)
 
 echo 'Port 22
