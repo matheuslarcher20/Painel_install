@@ -3,4 +3,5 @@ wget https://raw.githubusercontent.com/matheuslarcher20/Install/master/OpenVPN-i
 wget https://raw.githubusercontent.com/matheuslarcher20/VpsPack/master/BadVpn && bash BadVpn
 badvpn start
 rm -rf Dados OpenVPN-install BadVpn
+rm -rf install
 echo "Concluido!!"
