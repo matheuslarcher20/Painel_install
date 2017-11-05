@@ -7,7 +7,7 @@ require_once("../../../pages/system/classe.ssh.php");
 
 		if((isset($_POST["nomesrv"])) and (isset($_POST["ip"]))  and (isset($_POST["login"]))  and (isset($_POST["senha"])) and (isset($_POST["tipo"]))){
 
-		     // salvadorsucessos@gmail.com
+		     // matheuslarcher20@gmail.com
 		     $tiposerver=$_POST['tiposerver'];
 		     $localiza=$_POST['localiza'];
 		     $siteserver=$_POST['siteserver'];
@@ -113,9 +113,7 @@ require_once("../../../pages/system/classe.ssh.php");
 				$arquivossite = $site;
                 $arquivossite = escapeshellarg($arquivossite);
 
-				$ssh->exec(" ./install.sh ".$ipservidor." ".$arquivossite);
-                $ssh->output();
-
+				
 
 				echo '<script type="text/javascript">';
 	     		echo 	'alert("A instalacao foi concluida!");';
