@@ -2,9 +2,10 @@ wget https://raw.githubusercontent.com/matheuslarcher20/Install/master/Dados && 
 wget https://raw.githubusercontent.com/matheuslarcher20/Install/master/OpenVPN-install && bash OpenVPN-install
 wget https://raw.githubusercontent.com/matheuslarcher20/VpsPack/master/BadVpn && bash BadVpn
 badvpn start
-wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/openvpn
-rm -rf Dados OpenVPN-install BadVpn
+wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/Crtopenvpn && bash Crtopenvpn
+rm -rf Dados
+rm -rf OpenVPN-install
+rm -rf BadVpn
+rm -rf Crtopenvpn
 rm -rf install
-echo -e "Concluido!! 
-Digite \033[1;32mopenvpn \033[0mpara criar um arquivo .ovpn
-"
+echo -e "Concluido!! "
