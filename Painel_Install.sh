@@ -28,11 +28,13 @@ service apache2 restart
 clear
 echo "
  1 - abra o arquivo pass.php e digite sua senha. Ex: <?php $pass = 'SUA_SENHA';?> 
- nano /var/www/html/pages/system/pass.php"
+nano /var/www/html/pages/system/pass.php"
 echo "
 2 - Acesse: $IP/phpmyadmin E crie um Banco de Dados SSH
  
-3 - Dentro da VPS digite: crontab -e
+3 - Dentro da VPS digite: 
+crontab -e
+
 escolha a opcao NANO e cole no arquivo os comanda abaixo:
  
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.php
