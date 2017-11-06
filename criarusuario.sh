@@ -24,7 +24,7 @@ else
 			exit 1
 		else
 			sizemax=$(echo ${#username})
-			if [[ $sizemax -gt 32 ]]
+			if [[ $sizemax -gt 20 ]]
 			then
 				tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "3" ; echo "" ; echo "" ; tput sgr0
 				exit 1
@@ -41,7 +41,7 @@ else
 						exit 1
 					else
 						sizepass=10
-						if [[ $sizepass -lt 6 ]]
+						if [[ $sizepass -lt 4 ]]
 						then
 							tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "6" ; echo "" ; echo "" ; echo "" ; tput sgr0
 							exit 1
