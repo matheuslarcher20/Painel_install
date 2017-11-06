@@ -118,27 +118,33 @@ via off
 forwarded_for off
 #cache deny all' >> /etc/squid3/squid.conf
 service squid3 restart
-
+        
+	rm -rf AlterarSenha.sh
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/AlterarSenha.sh -O /bin/alterarsenha
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/AlterarSenha.sh
 	chmod 777 AlterarSenha.sh
 	chmod +x /bin/alterarsenha
+	rm -rf criarusuario.sh
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/criarusuario.sh -O /bin/criarusuario
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/criarusuario.sh
 	chmod 777 criarusuario.sh
 	chmod +x /bin/criarusuario
+	rm -rf remover.sh
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/remover.sh -O /bin/remover
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/remover.sh
 	chmod 777 remover.sh
 	chmod +x /bin/remover
+	rm -rf alterarlimite.sh
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/alterarlimite.sh -O /bin/alterarlimite
         wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/alterarlimite.sh
 	chmod 777 alterarlimite.sh
 	chmod +x /bin/alterarlimite
+	rm -rf sshmonitor.sh
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/sshmonitor.sh -O /bin/sshmonitor
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/sshmonitor.sh
 	chmod 777 sshmonitor.sh
 	chmod +x /bin/sshmonitor
+	rm -rf KillUser.sh
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/KillUser.sh -O /bin/KillUser
 	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/KillUser.sh
 	chmod 777 KillUser.sh
