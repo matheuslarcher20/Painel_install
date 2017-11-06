@@ -25,6 +25,10 @@ rm painelssh.zip index.html
 read -p "Senha para mysql e Banco de dados: " SENHA
 mysql -h localhost -u root -p$SENHA -e "CREATE DATABASE ssh"
 service apache2 restart
+chmod -R 777 /var/www/html/admin/pages/bandeiras
+chmod -R 777 /var/www/html/admin/pages/faturas/comprovantes
+chmod -R 777 /var/www/html/admin/pages/download
+chmod -R 777 /var/www/html/admin/pages/servidor/ovpn
 clear
 echo "
  1 - abra o arquivo pass.php e digite sua senha. Ex: <?php $pass = 'SUA_SENHA';?> 
