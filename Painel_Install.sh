@@ -17,7 +17,7 @@ php -m |grep ssh2
 cd 
 apt-get install unzip
 rm -rf painelssh.zip
-wget https://github.com/matheuslarcher20/Install/raw/master/painelssh.zip
+wget https://github.com/matheuslarcher20/Painel_install/raw/master/painelssh.zip
 mv painelssh.zip /var/www/html/
 cd /var/www/html
 unzip painelssh.zip
