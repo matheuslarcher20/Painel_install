@@ -22,6 +22,7 @@ mv painelssh.zip /var/www/html/
 cd /var/www/html
 unzip painelssh.zip
 rm painelssh.zip index.html
+IP=$(wget -qO- ipv4.icanhazip.com)
 read -p "Senha para mysql e Banco de dados: " SENHA
 mysql -h localhost -u root -p$SENHA -e "CREATE DATABASE ssh"
 service apache2 restart
