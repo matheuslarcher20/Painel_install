@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 IP=$(wget -qO- ipv4.icanhazip.com)
 
 echo 'Port 22
@@ -46,7 +46,9 @@ golpf.claro.com.br
 logtiscap.claro.com.br
 www.recargafacil.claro.com.br
 .vivo.com.br
-.bradescocelular.com.br" > /etc/payloads
+.bradescocelular.com.br
+connecthost-nl.ddns.net
+connecthost-br.ddns.net" > /etc/payloads
 
 apt-get update -y 1> /bin/null
 #apt-get upgrade -y 1> /bin/null
@@ -81,8 +83,7 @@ http_port 3128
 visible_hostname RNEOXBRASIL
 http_access deny all
 via off
-forwarded_for off
-#cache deny all' >> /etc/squid/squid.conf
+forwarded_for off' >> /etc/squid/squid.conf
 service squid restart
 
 echo 'SQUID DEBIAN'
@@ -115,37 +116,40 @@ http_port 3128
 visible_hostname RNEOXBRASIL
 http_access deny all
 via off
-forwarded_for off
-#cache deny all' >> /etc/squid3/squid.conf
+forwarded_for off' >> /etc/squid3/squid.conf
 service squid3 restart
-        
-	rm -rf AlterarSenha.sh
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/AlterarSenha.sh -O /bin/alterarsenha
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/AlterarSenha.sh
+
+	wget http://$IP/scripts/vpsmanager/scripts/addhost.sh -O /bin/addhost
+	chmod +x /bin/addhost
+	wget http://$IP/scripts/vpsmanager/scripts/alterarsenha.sh -O /bin/alterarsenha
+	wget http://$IP/scripts/update/AlterarSenha.sh
 	chmod 777 AlterarSenha.sh
 	chmod +x /bin/alterarsenha
-	rm -rf criarusuario.sh
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/criarusuario.sh -O /bin/criarusuario
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/criarusuario.sh
+	wget http://$IP/scripts/vpsmanager/scripts/criarusuario2.sh -O /bin/criarusuario
+	wget http://$IP/scripts/update/criarusuario.sh
 	chmod 777 criarusuario.sh
 	chmod +x /bin/criarusuario
-	rm -rf remover.sh
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/remover.sh -O /bin/remover
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/remover.sh
+	wget http://$IP/scripts/vpsmanager/scripts/delhost.sh -O /bin/delhost
+	chmod +x /bin/delhost
+	wget http://$IP/scripts/vpsmanager/scripts/expcleaner2.sh -O /bin/expcleaner
+	chmod +x /bin/expcleaner
+	wget http://$IP/scripts/vpsmanager/scripts/mudardata.sh -O /bin/mudardata
+	chmod +x /bin/mudardata
+	wget http://$IP/scripts/vpsmanager/scripts/remover.sh -O /bin/remover
+	wget http://$IP/scripts/update/remover.sh
 	chmod 777 remover.sh
 	chmod +x /bin/remover
-	rm -rf alterarlimite.sh
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/alterarlimite.sh -O /bin/alterarlimite
-        wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/alterarlimite.sh
-	chmod 777 alterarlimite.sh
+	wget http://$IP/scripts/vpsmanager/scripts/sshlimiter2.sh -O /bin/sshlimiter
+	chmod +x /bin/sshlimiter
+	wget http://$IP/scripts/vpsmanager/scripts/alterarlimite.sh -O /bin/alterarlimite
+	wget http://$IP/scripts/update/alterarlimite.sh
+    chmod 777 alterarlimite.sh
 	chmod +x /bin/alterarlimite
-	rm -rf sshmonitor.sh
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/sshmonitor.sh -O /bin/sshmonitor
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/sshmonitor.sh
+	wget http://$IP/scripts/vpsmanager/scripts/ajuda.sh -O /bin/ajuda
+	chmod +x /bin/ajuda
+	wget http://$IP/scripts/vpsmanager/scripts/sshmonitor2.sh -O /bin/sshmonitor
+	wget http://$IP/scripts/update/sshmonitor.sh
 	chmod 777 sshmonitor.sh
 	chmod +x /bin/sshmonitor
-	rm -rf KillUser.sh
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/KillUser.sh -O /bin/KillUser
-	wget https://raw.githubusercontent.com/matheuslarcher20/Painel_install/master/KillUser.sh
+	wget http://$IP/scripts/update/KillUser.sh
 	chmod 777 KillUser.sh
-	chmod +x /bin/KillUser
