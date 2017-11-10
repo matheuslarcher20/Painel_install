@@ -30,6 +30,7 @@ chmod -R 777 /var/www/html/admin/pages/bandeiras
 chmod -R 777 /var/www/html/admin/pages/faturas/comprovantes
 chmod -R 777 /var/www/html/admin/pages/download
 chmod -R 777 /var/www/html/admin/pages/servidor/ovpn
+rm -rf Painel_Install.sh
 clear
 echo "
  1 - abra o arquivo pass.php e digite sua senha. Ex: <?php $pass = 'SUA_SENHA';?> 
@@ -52,4 +53,3 @@ service apache2 restart
   
     ******Final*******"
  
- rm -rf Painel_Install.sh
