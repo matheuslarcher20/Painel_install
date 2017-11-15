@@ -30,6 +30,8 @@ chmod -R 777 /var/www/html/admin/pages/bandeiras
 chmod -R 777 /var/www/html/admin/pages/faturas/comprovantes
 chmod -R 777 /var/www/html/admin/pages/download
 chmod -R 777 /var/www/html/admin/pages/servidor/ovpn
+chmod -R 777 /var/www/html/pages/faturasclientes/comprovantes
+chmod -R 777 /var/www/html/pages/faturasclientes/minhas/comprovantes
 rm -rf Painel_Install.sh
 clear
 echo "
