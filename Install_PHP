@@ -19,7 +19,7 @@ apt-get install unzip
 mv php.zip /var/www/html/
 cd /var/www/html
 unzip php.zip
-rm php.zip index.html
+rm php.zip
 IP=$(wget -qO- ipv4.icanhazip.com)
 read -p "Senha para mysql e Banco de dados: " SENHA
 mysql -h localhost -u root -p$SENHA -e "CREATE DATABASE ssh"
