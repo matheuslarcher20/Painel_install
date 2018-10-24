@@ -26,6 +26,36 @@ mysql -h localhost -u root -p$SENHA -e "CREATE DATABASE ssh"
 service apache2 restart
 
 rm -rf Painel_Install.sh
+
+echo "Port 22
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes" > /etc/ssh/sshd_config
+service ssh restart
+echo -e "\033[05;32mInstalação concluida!!\033[0m"
+
 clear
 echo "
  1 - abra o arquivo pass.php e digite sua senha. Ex: <?php $pass = 'SUA_SENHA';?> 
