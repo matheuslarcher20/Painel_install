@@ -16,6 +16,7 @@ apt-get install libssh2-1-dev libssh2-php -y
 php -m |grep ssh2
 cd 
 apt-get install unzip
+wget https://github.com/matheuslarcher20/Painel_install/raw/master/app.zip
 mv php.zip /var/www/html/
 cd /var/www/html
 unzip php.zip
